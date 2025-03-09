@@ -21,6 +21,7 @@
         "illuminate/contracts": "^10.0||^11.0||^12.0",
         "illuminate/support": "^10.0||^11.0||^12.0",
         "laravel/prompts": "^0.3.5",
+        "nunomaduro/laravel-console-task": "*",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
@@ -37,8 +38,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Weble\\ReleaseCommand\\": "src/",
-            "Weble\\ReleaseCommand\\Database\\Factories\\": "database/factories/"
+            "Weble\\ReleaseCommand\\": "src/"
         }
     },
     "autoload-dev": {
