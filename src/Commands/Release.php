@@ -40,17 +40,20 @@ class Release extends Command
 
         // We need to be in develop first
         $currentBranch = str(Process::run("$git rev-parse --abbrev-ref HEAD")->output())->trim()->toString();
-        if ($currentBranch !== $develop && $this->confirm("Your not in the $develop branch. Would you like to checkout the $develop branch first?")) {
-            $process = Process::run("$git checkout $develop");
-            if ($process->failed()) {
-                error($process->errorOutput());
+        if ($currentBranch !== $develop) {
+
+            if ($this->confirm("Your not in the $develop branch. Would you like to checkout the $develop branch first?")) {
+                $process = Process::run("$git checkout $develop");
+                if ($process->failed()) {
+                    error($process->errorOutput());
+
+                    return self::FAILURE;
+                }
+            } else {
+                error("You need to be in the $develop branch to release using Git Flow");
 
                 return self::FAILURE;
             }
-        } else {
-            error("You need to be in the $develop branch to release using Git Flow");
-
-            return self::FAILURE;
         }
 
         $bumpedVersion = $this->option('release-version');
