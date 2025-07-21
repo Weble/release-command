@@ -143,14 +143,14 @@ class Release extends Command
             return self::SUCCESS;
         }
 
-        $pushTags = !$this->option('no-tags') || select(
-                label: "Push also Tags?",
-                options: [
-                    1 => 'Yes',
-                    0 => 'No',
-                ],
-                default: config('release-command.push_tags', true) ? 1 : 0,
-            );
+        $pushTags = ! $this->option('no-tags') || select(
+            label: 'Push also Tags?',
+            options: [
+                1 => 'Yes',
+                0 => 'No',
+            ],
+            default: config('release-command.push_tags', true) ? 1 : 0,
+        );
 
         $tags = $pushTags ? '--tags' : '';
 
