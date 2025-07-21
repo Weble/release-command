@@ -50,6 +50,11 @@ return [
      * Push to origin default
      */
     'push_to_origin' => true,
+    
+    /**
+     * Push the tags as well
+     */
+    'push_tags' => true,
 ];
 
 ```
