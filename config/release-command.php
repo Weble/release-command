@@ -22,4 +22,9 @@ return [
      * Push to origin default
      */
     'push_to_origin' => true,
+
+    /**
+     * Push also tags
+     */
+    'push_tags' => true,
 ];
