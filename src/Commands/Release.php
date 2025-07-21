@@ -13,7 +13,7 @@ use function Laravel\Prompts\select;
 
 class Release extends Command
 {
-    protected $signature = 'release {--release-version=} {--version-type=} {--local}';
+    protected $signature = 'release {--release-version=} {--version-type=} {--local} {--no-tags}';
 
     protected $description = 'Release a new version';
 
